@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <!-- Handles all requests into the application -->
+    <!--
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
+    -->
+    <!-- Spring Security -->
+    <!--
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    -->
+    <!-- Reads request input using UTF-8 encoding -->
+    <!--
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    -->
+    <servlet>
+        <servlet-name>Relatorio</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.RelatorioControl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>GerarRelatorio</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.GeradorRelatorioControl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LoadMenuRelatorio</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.LoadMenuRelatorioControl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Parametro</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.ParametroControl</servlet-class>
+        <init-param>
+            <description>package de onde serao lidos os DAO</description>
+            <param-name>packageDAO</param-name>
+            <param-value>br.gov.sc.fatma.gaia.dao;br.gov.sc.fatma.dao;br.gov.sc.fatma.servico</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Subrelatorio</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.SubrelatorioControl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RelatorioJasper</servlet-name>
+        <servlet-class>br.com.geodev.app.relatoriosweb.RelatorioJasper</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Relatorio</servlet-name>
+        <url-pattern>/relatorio.rel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GerarRelatorio</servlet-name>
+        <url-pattern>/gerarRelatorio.rel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LoadMenuRelatorio</servlet-name>
+        <url-pattern>/loadMenuRelatorio.rel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Parametro</servlet-name>
+        <url-pattern>/parametro.rel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Subrelatorio</servlet-name>
+        <url-pattern>/subrelatorio.rel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RelatorioJasper</servlet-name>
+        <url-pattern>/RelatorioJasper</url-pattern>
+    </servlet-mapping>
+
+    <resource-ref>
+        <description>My DataSource Reference</description>
+        <res-ref-name>jdbc/RelatoriosWEBDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+</web-app>

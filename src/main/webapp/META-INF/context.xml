@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/relatorioswebmvn">
+    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/RelatoriosWEBDB" password="agricwin" type="javax.sql.DataSource" url="jdbc:postgresql://localhost/agricwin" username="agricwin"/>
+</Context>
